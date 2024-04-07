@@ -1,29 +1,61 @@
-# Create T3 App
+## WebWay Project - HackMD
+This HackMD serves as a central hub for all things WebWay!
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Project Overview
 
-## What's next? How do I make an app with this?
+**Problem:** Slow and expensive regional deliveries within a specific region.  
+**Solution:** WebWay leverages existing bus networks to offer fast, affordable, and convenient regional parcel delivery.  
+**Target Audience:** Individuals, Businesses
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+**Unique Selling Points (USPs):**
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- Focus on Efficiency: Optimized delivery routes and bus schedules for faster regional deliveries.
+- Cost-Effectiveness: Leverages existing infrastructure for competitive pricing compared to traditional couriers.
+- User-Friendly Platform: Streamlined online scheduling, tracking (future integration), and delivery management.
+- On-Demand Option (Optional): Convenient doorstep pickup and drop-off for added convenience (WebWay Express).
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+**Landing Page:**
 
-## Learn More
+- Headline: "Your one-stop for sending Packages, Gifts, [more product ideas]" (typewriter effect)
+- Short Description: "WebWay empowers you to send parcels and gifts within your region quickly, conveniently, and affordably. Leverage existing bus networks and experience a hassle-free delivery process." (Optional: Upgrade to WebWay Express for on-demand pickup!)
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+**Subscription Plans:**
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+- WebWay Track & Trace (Standard Plan): Cost-effective with real-time tracking (future integration). Users drop off packages at designated bus stations.
+- WebWay Express (Premium Plan): Maximum convenience with on-demand pickup and doorstep delivery at the destination.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+**Revenue Model:**
 
-## How do I deploy this?
+- Transaction Fees: Tiered pricing based on weight, distance, and plan type (Standard vs. Express).
+- Value-Added Services (Optional): Package insurance, delivery confirmation with signature, scheduled delivery windows.
+- Business Accounts (Optional): Subscription plans with discounted fees, priority service, and dedicated account management.
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+**Key Metrics:**
+
+- Customer Acquisition Cost (CAC)
+- Customer Lifetime Value (CLTV)
+- Delivery Success Rate
+
+**Market Potential:**
+
+- Rising E-commerce
+- Limited Regional Options
+- Shifting Consumer Preferences (convenience, speed, transparency)
+- Growing Environmental Concerns (sustainable approach)
+
+**Differentiation from Dunzo:**
+
+- WebWay: Focuses on regional deliveries with buses. Targets intra-region efficiency and affordability.
+- Dunzo: Offers broader services (groceries, errands, inter-city deliveries). Utilizes motorbikes/bicycles for local deliveries.
+
+**Development Roadmap:**
+
+1. **Phase 1:** Launch core functionalities (scheduling, standard delivery, tracking - future integration).
+2. **Phase 2:** Implement on-demand pickup (WebWay Express) and expand to new regions.
+3. **Phase 3:** Integrate real-time tracking, explore value-added services, and develop business account options.
+
+**Next Steps:**
+
+- Outline upcoming tasks and milestones.
+
+Feel free to adjust the formatting or content as needed!
