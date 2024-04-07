@@ -47,8 +47,8 @@ const formSchema = z.object({
 export default function Express() {
   const { data: session } = useSession();
   const user = session?.user;
-  const {setDeliveryId , setReceiverId} = useStateStore();
-  const { toast } = useToast()
+  const {setDeliveryId , setReceiverId, setDestination, setPickup} = useStateStore();
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -146,8 +146,12 @@ export default function Express() {
         status: DeliveryStatus.PENDING,
         items: parseInt(values.items),
       });
+
       setDeliveryId(addExpress.data?.id ?? "0");
       setReceiverId(receiverQuery.data?.id ?? "0");
+      setPickup(values.fromPlace);
+      setDestination(values.toPlace);
+      
       toast({
         title: "Standard Delivery",
         description: `ID : ${addExpress.data?.items}`,

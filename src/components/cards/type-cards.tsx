@@ -10,7 +10,7 @@ interface CardProps {
   imagesrc: string;
 }
 
-export  const Card: React.FC<CardProps> = ({
+export const Card: React.FC<CardProps> = ({
   heading,
   buttonText,
   content,

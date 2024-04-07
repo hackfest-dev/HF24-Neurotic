@@ -1,8 +1,8 @@
 import Head from "next/head";
+import localFont from "next/font/local";
 import MaxWidthWrapper from "~/components/layout/max-width-wrapper";
 import Fade from "react-awesome-reveal";
-import OrderTable from "~/components/conductor/tableview";
-import localFont from "next/font/local";
+import BusDetails from "~/components/cards/Buses";
 const myFont = localFont({ src: "../../lib/obscura.otf" });
 
 export default function Home() {
@@ -16,7 +16,10 @@ export default function Home() {
             >
               Select a Bus
             </h1>
-            <OrderTable />
+            {/* <p className="mt-5 text-center max-w-prose text-white sm-text-lg font-semibold underline">
+                    lorem ipsum
+                </p> */}
+            <BusDetails />
           </div>
         </Fade>
       </MaxWidthWrapper>

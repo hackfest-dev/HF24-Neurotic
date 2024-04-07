@@ -1,5 +1,5 @@
 import Head from "next/head";
-import LandingText from "~/components/layout/landingtext";
+import LandingText from "~/components/layout/landing-text";
 import Express from "~/components/userdelivery/express";
 import Standard from "~/components/userdelivery/standard";
 

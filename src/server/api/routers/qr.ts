@@ -8,13 +8,34 @@ import {
 import QRCode from "qrcode";
 
 export const qrRouter = createTRPCRouter({
-    getQR: publicProcedure.input(z.object({
-        jsonData: z.unknown(),
-    })).query((opts) => {
-        const { jsonData } = opts.input;
-        const jsonStringData = JSON.stringify(jsonData);
-        const qr = QRCode.toDataURL(jsonStringData);
+  getSenderQR: publicProcedure
+  .input(z.object({ trackingID: z.string() }))
+  .query(async ( {ctx,input} ) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const data = await ctx.db.senderQR.findFirst({
+      where: {
+        deliveryId : input.trackingID
+      }
+    })
+    const jsonStringData = JSON.stringify(data);
+    console.log(jsonStringData);
+    const qr = QRCode.toDataURL(jsonStringData);
 
-        return qr;
-    }),
+    return qr;
+  }),
+  getRecieverQR: publicProcedure
+  .input(z.object({ trackingID: z.string() }))
+  .query(async ( {ctx,input} ) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const data = await ctx.db.receiverQR.findFirst({
+      where: {
+        deliveryId : input.trackingID
+      }
+    })
+    const jsonStringData = JSON.stringify(data);
+    console.log(jsonStringData);
+    const qr = QRCode.toDataURL(jsonStringData);
+
+    return qr;
+  }),
 });

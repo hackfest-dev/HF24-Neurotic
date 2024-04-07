@@ -31,6 +31,7 @@ export const env = createEnv({
     GOOGLE_CLIENT_ID: z.string(),
     GOOGLE_CLIENT_SECRET: z.string(),
     MAP_CLIENT: z.string(),
+    REVERSE_GEO: z.string()
   },
 
   /**
@@ -54,6 +55,7 @@ export const env = createEnv({
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
     MAP_CLIENT: process.env.MAP_CLIENT,
+    REVERSE_GEO: process.env.REVERSE_GEO
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

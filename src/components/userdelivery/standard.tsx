@@ -20,7 +20,6 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useStateStore } from "~/store";
 import { useToast } from "~/components/ui/use-toast"
-import Link from "next/link";
 
 
 enum Plan {
@@ -48,8 +47,7 @@ const formSchema = z.object({
 export default function Standard() {
   const { data: session } = useSession();
   const user = session?.user;
-  const {setDeliveryId, setReceiverId } = useStateStore();
-  
+  const {setDeliveryId , setReceiverId, setDestination, setPickup} = useStateStore();
   const { toast } = useToast()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -151,6 +149,8 @@ export default function Standard() {
 
       setDeliveryId(trackingid);
       setReceiverId(receiverQuery.data?.id ?? "0");
+      setPickup(values.fromPlace);
+      setDestination(values.toPlace);
       toast({
         title: "Standard Delivery",
         description: `ID : ${trackingid}`,
@@ -295,7 +295,7 @@ export default function Standard() {
               name="toPlace"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>from</FormLabel>
+                  <FormLabel>frm</FormLabel>
                   <FormControl>
                     <select
                       {...field}
@@ -333,11 +333,10 @@ export default function Standard() {
                 </FormItem>
               )}
             />
-              <Link href='/bus'>
+
             <Button type="submit" style={{ padding: "10px" }}>
               {"Submit"}
             </Button>
-            </Link>
           </form>
         </Form>
       </div>

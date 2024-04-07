@@ -7,7 +7,7 @@ import "~/styles/globals.css";
 import { Navbar } from "~/components/layout/navbar";
 import Footer from "~/components/layout/footer";
 import "~/styles/globals.css";
-import LandingText from "~/components/layout/landingtext";
+import { Toaster } from "~/components/ui/toaster";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -24,10 +24,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
       <main className={`${poppins.className}`}>
         <Navbar />
         <Component {...pageProps} />
-     
+        <Toaster />
+        <Footer />
       </main>
-      <Footer />
-     
     </SessionProvider>
   );
 };

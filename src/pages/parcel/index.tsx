@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { Card } from "~/components/helpers/card";
+import { Card } from "~/components/cards/type-cards";
 import localFont from "next/font/local";
-const myFont = localFont({ src: "../lib/obscura.otf" });
+const myFont = localFont({ src: "../../lib/obscura.otf" });
 export default function Home() {
   return (
     <>
@@ -37,4 +37,7 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+{
 }

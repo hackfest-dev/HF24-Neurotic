@@ -13,6 +13,10 @@ type StateStore = {
   setDeliveryId: (deliveryid: string) => void;
   receiverId : string;
   setReceiverId: (receiverid: string) => void;
+  Pickup : string;
+  setPickup: (Pickup: string) => void;
+  Destination : string;
+  setDestination: (Destination: string) => void;
 };
 
 export const useStateStore = create<StateStore>((set) => {
@@ -29,6 +33,10 @@ export const useStateStore = create<StateStore>((set) => {
     deliveryid : "0",
     setDeliveryId : (deliveryid: string) => set({deliveryid}),
     receiverId : "0",
-    setReceiverId: (receiverId : string) => set({receiverId})
+    setReceiverId: (receiverId : string) => set({receiverId}),
+    Pickup : "0",
+    setPickup: (Pickup : string) => set({Pickup}),
+    Destination : "0",
+    setDestination: (Destination : string) => set({Destination}),
   };
 });
