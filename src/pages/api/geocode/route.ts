@@ -1,7 +1,10 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { env } from '~/env';
+import type { NextApiRequest, NextApiResponse } from "next";
+import { env } from "~/env";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
   // Destructure latitude and longitude from the query parameters
   const { lat, lon } = req.query;
 
@@ -27,6 +30,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(200).json(data);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error fetching geocode data' });
+    res.status(500).json({ message: "Error fetching geocode data" });
   }
 }

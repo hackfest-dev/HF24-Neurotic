@@ -8,14 +8,14 @@ type StateStore = {
   latitude: number;
   setLatitude: (latitude: number) => void;
   busNo: string;
-  setbusNo : (busNo : string) => void;
-  deliveryid : string;
+  setbusNo: (busNo: string) => void;
+  deliveryid: string;
   setDeliveryId: (deliveryid: string) => void;
-  receiverId : string;
+  receiverId: string;
   setReceiverId: (receiverid: string) => void;
-  Pickup : string;
+  Pickup: string;
   setPickup: (Pickup: string) => void;
-  Destination : string;
+  Destination: string;
   setDestination: (Destination: string) => void;
 };
 
@@ -29,14 +29,14 @@ export const useStateStore = create<StateStore>((set) => {
     latitude: 0,
     setLatitude: (latitude: number) => set({ latitude }),
     busNo: "0",
-    setbusNo : (busNo: string) => set({busNo}),
-    deliveryid : "0",
-    setDeliveryId : (deliveryid: string) => set({deliveryid}),
-    receiverId : "0",
-    setReceiverId: (receiverId : string) => set({receiverId}),
-    Pickup : "0",
-    setPickup: (Pickup : string) => set({Pickup}),
-    Destination : "0",
-    setDestination: (Destination : string) => set({Destination}),
+    setbusNo: (busNo: string) => set({ busNo }),
+    deliveryid: "0",
+    setDeliveryId: (deliveryid: string) => set({ deliveryid }),
+    receiverId: "0",
+    setReceiverId: (receiverId: string) => set({ receiverId }),
+    Pickup: "0",
+    setPickup: (Pickup: string) => set({ Pickup }),
+    Destination: "0",
+    setDestination: (Destination: string) => set({ Destination }),
   };
 });

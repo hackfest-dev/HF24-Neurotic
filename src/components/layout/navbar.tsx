@@ -23,8 +23,6 @@ export function Navbar() {
                 </div>
               </Link>
               <div className="hidden items-center space-x-4 sm:flex">
-
-
                 <AuthButton />
               </div>
             </div>

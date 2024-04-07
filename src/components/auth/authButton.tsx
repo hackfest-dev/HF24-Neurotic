@@ -71,7 +71,6 @@ export default function AuthButton() {
           onClick={async () => {
             await signIn();
           }}
-          
         >
           Log In <DoorOpen />
         </Button>

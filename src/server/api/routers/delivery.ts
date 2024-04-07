@@ -48,7 +48,7 @@ export const deliveryRouter = createTRPCRouter({
       return ctx.db.delivery.create({
         data: {
           senderID: input.senderID,
-          trackingID : input.trackingID,
+          trackingID: input.trackingID,
           receiverID: input.receiverID,
           fromPlace: input.fromPlace,
           toPlace: input.toPlace,
@@ -60,17 +60,16 @@ export const deliveryRouter = createTRPCRouter({
           scanNumber: input.scanNumber,
           status: input.status,
           items: input.items,
-          
         },
       });
     }),
   getDelivery: protectedProcedure
-  .input(z.object({ trackingID: z.string() }))
-  .query(( {ctx,input} ) => {
-    return ctx.db.delivery.findFirst({
-      where: {trackingID : input.trackingID}
-    })
-  }),
+    .input(z.object({ trackingID: z.string() }))
+    .query(({ ctx, input }) => {
+      return ctx.db.delivery.findFirst({
+        where: { trackingID: input.trackingID },
+      });
+    }),
 
   getLatest: protectedProcedure.query(({ ctx }) => {
     return ctx.db.delivery.findFirst({
@@ -100,38 +99,38 @@ export const deliveryRouter = createTRPCRouter({
       });
     }),
 
-    addsenderqr: publicProcedure
+  addsenderqr: publicProcedure
     .input(
       z.object({
-        deliveryID : z.string(),
+        deliveryID: z.string(),
         senderID: z.string(),
         scanNumber: z.number(),
-      })
-    ).mutation(async ({ ctx , input }) => {
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
       return ctx.db.senderQR.create({
         data: {
-          deliveryId : input.deliveryID,
+          deliveryId: input.deliveryID,
           senderID: input.senderID,
-          scanNumber: input.scanNumber
-        }
-      })
+          scanNumber: input.scanNumber,
+        },
+      });
     }),
-    addreceiverqr: publicProcedure
+  addreceiverqr: publicProcedure
     .input(
       z.object({
-        deliveryID : z.string(),
+        deliveryID: z.string(),
         receiverID: z.string(),
         scanNumber: z.number(),
-      })
-    ).mutation(async ({ ctx , input }) => {
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
       return ctx.db.receiverQR.create({
         data: {
-          deliveryId : input.deliveryID,
+          deliveryId: input.deliveryID,
           receiverID: input.receiverID,
-          scanNumber: input.scanNumber
-        }
-      })
-    })
+          scanNumber: input.scanNumber,
+        },
+      });
+    }),
 });
-
-

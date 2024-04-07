@@ -2,7 +2,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { Button } from "~/components/ui/button";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import {
   Form,
   FormControl,
@@ -19,8 +19,7 @@ import MaxWidthWrapper from "../layout/max-width-wrapper";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useStateStore } from "~/store";
-import { useToast } from "~/components/ui/use-toast"
-
+import { useToast } from "~/components/ui/use-toast";
 
 enum Plan {
   STANDARD = "STANDARD",
@@ -47,8 +46,9 @@ const formSchema = z.object({
 export default function Standard() {
   const { data: session } = useSession();
   const user = session?.user;
-  const {setDeliveryId , setReceiverId, setDestination, setPickup} = useStateStore();
-  const { toast } = useToast()
+  const { setDeliveryId, setReceiverId, setDestination, setPickup } =
+    useStateStore();
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -125,7 +125,7 @@ export default function Standard() {
   // Fetch receiver's ID outside of onSubmit
   const receiverEmail = form.watch("remail");
   const receiverQuery = api.user.useremail.useQuery({ text: receiverEmail });
-  const trackingid:string = uuidv4();
+  const trackingid: string = uuidv4();
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
@@ -133,7 +133,7 @@ export default function Standard() {
 
       // Use receiverQuery.data.id here
       await addExpress.mutateAsync({
-        trackingID : trackingid,
+        trackingID: trackingid,
         senderID: user?.id ?? "01001",
         receiverID: receiverQuery.data?.id ?? "01001",
         fromPlace: values.fromPlace,
@@ -144,7 +144,6 @@ export default function Standard() {
         scanNumber: 1000,
         status: DeliveryStatus.PENDING,
         items: parseInt(values.items),
-        
       });
 
       setDeliveryId(trackingid);

@@ -3,18 +3,20 @@ import { useStateStore } from "~/store";
 import { api } from "~/utils/api";
 
 export const TableView = () => {
-  const {busNo} = useStateStore();
-  const { data: orders} = api.bus.getpendingorder.useQuery({numberPlate: "NAV828"});
-  const { data: orderss } = api.bus.getacceptedorder.useQuery({numberPlate: "NAV828"});
-
+  const { busNo } = useStateStore();
+  const { data: orders } = api.bus.getpendingorder.useQuery({
+    numberPlate: "NAV828",
+  });
+  const { data: orderss } = api.bus.getacceptedorder.useQuery({
+    numberPlate: "NAV828",
+  });
 
   const handleAccept = async (orderNumber: number) => {
     try {
-
       console.log(`Order ${orderNumber} accepted.`);
       // Optionally, update the UI to reflect the accepted status
     } catch (error) {
-      console.error('Error accepting order:', error);
+      console.error("Error accepting order:", error);
       // Handle errors appropriately, e.g., display an error message to the user
     }
   };
@@ -44,7 +46,7 @@ export const TableView = () => {
             <tbody>
               {orderss?.map((order, index) => (
                 <tr key={index}>
-                             <td className="border px-4 py-2">{order.trackingID}</td>
+                  <td className="border px-4 py-2">{order.trackingID}</td>
                   <td className="border px-4 py-2">{order.orderNum}</td>
                   <td className="border px-4 py-2">{order.Pickup}</td>
                   <td className="border px-4 py-2">{order.Destination}</td>

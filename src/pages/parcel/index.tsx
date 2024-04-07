@@ -5,14 +5,13 @@ const myFont = localFont({ src: "../../lib/obscura.otf" });
 export default function Home() {
   return (
     <>
-         <h1
-              className={`${myFont.className} bg-gradient-to-b from-purple-600 to-pink-300 bg-clip-text pt-10 text-center text-5xl font-black text-transparent underline-offset-2 `}
-            >
-              Select a Service
-            </h1>
+      <h1
+        className={`${myFont.className} bg-gradient-to-b from-purple-600 to-pink-300 bg-clip-text pt-10 text-center text-5xl font-black text-transparent underline-offset-2 `}
+      >
+        Select a Service
+      </h1>
       <main>
         <div className="flex min-h-screen items-center justify-center">
-
           <div className="grid grid-cols-1 content-center gap-5 md:grid-cols-2 lg:grid-cols-2">
             <Card
               heading={"Standard Plan"}

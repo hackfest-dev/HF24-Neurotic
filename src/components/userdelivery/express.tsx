@@ -20,7 +20,7 @@ import { Textarea } from "../ui/textarea";
 import { useRouter } from "next/router";
 import { useStateStore } from "~/store";
 import { useToast } from "~/components/ui/use-toast";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 enum Plan {
   STANDARD = "STANDARD",
@@ -47,7 +47,8 @@ const formSchema = z.object({
 export default function Express() {
   const { data: session } = useSession();
   const user = session?.user;
-  const {setDeliveryId , setReceiverId, setDestination, setPickup} = useStateStore();
+  const { setDeliveryId, setReceiverId, setDestination, setPickup } =
+    useStateStore();
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -126,7 +127,7 @@ export default function Express() {
   // Fetch receiver's ID outside of onSubmit
   const receiverEmail = form.watch("remail");
   const receiverQuery = api.user.useremail.useQuery({ text: receiverEmail });
-  const trackingid:string = uuidv4();
+  const trackingid: string = uuidv4();
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
@@ -135,7 +136,7 @@ export default function Express() {
       // Use receiverQuery.data.id here
       await addExpress.mutateAsync({
         senderID: user?.id ?? "01001",
-        trackingID : trackingid,
+        trackingID: trackingid,
         receiverID: receiverQuery.data?.id ?? "01001",
         fromPlace: values.fromPlace,
         toPlace: values.toPlace,
@@ -151,7 +152,7 @@ export default function Express() {
       setReceiverId(receiverQuery.data?.id ?? "0");
       setPickup(values.fromPlace);
       setDestination(values.toPlace);
-      
+
       toast({
         title: "Standard Delivery",
         description: `ID : ${addExpress.data?.items}`,
