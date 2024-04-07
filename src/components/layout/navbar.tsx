@@ -23,33 +23,7 @@ export function Navbar() {
                 </div>
               </Link>
               <div className="hidden items-center space-x-4 sm:flex">
-                <Link
-                  href="/dashboard"
-                  className={buttonVariants({
-                    variant: "hovblue",
-                    size: "sm",
-                  })}
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/events"
-                  className={buttonVariants({
-                    variant: "hovblue",
-                    size: "sm",
-                  })}
-                >
-                  About
-                </Link>
-                <Link
-                  href="/team"
-                  className={buttonVariants({
-                    variant: "hovblue",
-                    size: "sm",
-                  })}
-                >
-                  Contact
-                </Link>
+
 
                 <AuthButton />
               </div>

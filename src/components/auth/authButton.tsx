@@ -67,9 +67,11 @@ export default function AuthButton() {
       ) : (
         <Button
           className="gap-2"
+          variant={"bodblue"}
           onClick={async () => {
             await signIn();
           }}
+          
         >
           Log In <DoorOpen />
         </Button>
